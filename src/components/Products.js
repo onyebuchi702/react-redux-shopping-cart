@@ -2,10 +2,31 @@
 import * as React from 'react';
 import util from '../util'
 
+import { connect } from 'react-redux'
+import {fetchProducts} from '../actions/productActions'
+
 class Products extends React.Component {
+
+  componentWillMount() {
+    this.props.fetchProducts()
+  }
+
   render() {
-    console.log(this.props.product);
-    const productItems = this.props.product.map(product => (
+    const { products, isLoading, error } = this.props;
+    if (isLoading){
+      return (
+        <span>Loading...</span>
+      )
+    }
+    if (!products) {
+      return (
+        <>
+          <h1>No Products</h1>
+        </>
+      )
+    }
+
+    const productItems = products.map(product => (
         <div className="col-md-4" key={product.id}>
           <div className="thumbnail text-center">
             <a
@@ -35,4 +56,9 @@ class Products extends React.Component {
   }
 }
 
-export default Products;
+const mapStateToProps = state => ({
+  products: state.products.items,
+  isLoading: state.products.isLoading
+})
+
+export default connect(mapStateToProps, {fetchProducts})(Products);
