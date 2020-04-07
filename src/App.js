@@ -37,9 +37,9 @@ class App extends Component {
     //   products: data,
     //   filteredProducts: data,
     // })
-    // if(localStorage.getItem('cartItems')) {
-    //   this.setState({cartItems: JSON.parse(localStorage.getItem('cartItems'))}) //convert to js
-    // }
+    if(localStorage.getItem('cartItems')) {
+      this.setState({cartItems: JSON.parse(localStorage.getItem('cartItems'))}) //convert to js
+    }
 
   }
 
@@ -129,7 +129,7 @@ class App extends Component {
                 count={this.state.filteredProducts.length}/>
               <hr/>
               <Products
-                // product={this.state.filteredProducts}
+                product={this.state.filteredProducts}
                 handleAddToCart={this.handleAddToCart}/>
             </div>
             <div className="col-md-3">
