@@ -1,4 +1,8 @@
-import { FETCH_PRODUCTS, FETCH_PRODUCTS_SUCCESSS, FETCH_PRODUCTS_FAILURE } from '../actions/types'
+import {
+  FETCH_PRODUCTS,
+  FETCH_PRODUCTS_SUCCESSS,
+  FETCH_PRODUCTS_FAILURE
+} from '../actions/types'
 
 const initialState = {items: []}
 

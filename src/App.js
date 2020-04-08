@@ -108,7 +108,7 @@ class App extends Component {
 
   handleRemoveFromCart(e, item) {
     this.setState(state => {
-    const cartItems= state.cartItems.filter(elm => elm.id !== item.id)
+    const cartItems = state.cartItems.filter(elm => elm.id !== item.id)
     localStorage.setItem('cartItems', cartItems)
     return{cartItems}
     })
